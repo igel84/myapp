@@ -1,0 +1,10 @@
+.entry	
+	%h1 Блог
+	%br/
+	- @articles.each do |article|
+		%h3= article.title
+		%br/
+		!= body_for_news(article.body)
+		= link_to 'дальше...', new_show_path(article.id), style: 'font-weight: bold;'
+		%br/
+		%br/

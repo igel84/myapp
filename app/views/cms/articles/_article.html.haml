@@ -1,0 +1,9 @@
+%td{ width:'100px' }
+	= truncate(article.title, length:15, omission:'...')
+	.content{ id:"title#{article.id}" }= article.title
+%td
+	= truncate(article.body, length:50, omission:'...')
+	.content{ id:"body#{article.id}" }= article.body
+%td{ width:'150px' }
+	= truncate(article.info, length:20, omission:'...')
+	.content{ id:"info#{article.id}" }= article.info

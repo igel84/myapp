@@ -1,0 +1,33 @@
+<% form_for(@article, remote:'true', :url => { controller:'cms/articles', action:'update' }) do |f| %>
+	<%= f.hidden_field :id %>
+	<table id='editTable'>
+		<tr>
+			<td>
+				<div class='titleText'>Заголовок</div>
+			</td>
+			<td>
+				<div id='inputTitle'><%= f.text_field :title %></div>
+			</td>
+		</tr>			
+		<tr>
+			<td>
+				<div class='titleText area'>Содержание</div>
+			</td>
+			<td>
+				<div id='inputBody'><%= f.cktext_area :body, :toolbar=>'Easy', :width=>'100%', :height=>'200px' %></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class='titleText'>Цитата</div>
+			</td>
+			<td>
+				<div id='inputInfo'><%= f.text_field :info %></div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><div><%= f.submit id:'but', value:'сохранить' %></div></td>
+		</tr>
+	</table>
+<% end %>

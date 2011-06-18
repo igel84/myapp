@@ -1,0 +1,8 @@
+.entry	
+	%h1= @article.title
+	%br/
+	!= @article.body
+- if @article.info != ''
+	%p.info 
+		!= @article.info
+	-# title("page_title")

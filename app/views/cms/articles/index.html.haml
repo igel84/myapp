@@ -1,0 +1,26 @@
+#dialog{ title:'Внимание' }
+	%p Действительно хотите удалить?
+
+#hideShow
+	- form_for(@articles.first, url:cms_article_show_path, remote:'true' ) do |f|
+		#artNum
+			= f.text_field :id
+		= f.submit( id:'subNum' )
+			
+#editInfo
+	информация
+
+#showInfo
+	#panelButtons
+		=# %a#newArticle.editButtons{ href:'/' }
+		=#	Добавить статью
+		= link_to('Добавить статью', cms_article_new_path, remote:'true', id:'newArticle', class:'editButtons')
+		= link_to('Удалить статью', cms_article_index_path, id:'remArticle', class:'editButtons')
+	%table.striping{width:'100%'}
+		- @articles.each do |art|
+			%tr{ id:art.id }
+				= render partial:'article', locals:{ article:art }
+#f
+	%hr/
+	#editForm
+		= render( partial:'edit', :locals => { article:Article.new } )

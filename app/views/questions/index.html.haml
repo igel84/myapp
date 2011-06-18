@@ -1,0 +1,20 @@
+.entry	
+	%h1 Вопрос-ответ
+	%p
+		В данном разделе
+		= link_to('сайта', { :controller => 'homes', :action => 'index' }, :class => 'active')
+		можно задать интересующий Вас вопрос и получить исчерпывающий ответ. 
+	%br/	
+	#questlist 
+		= render(partial:"questionlist")
+		=# will_paginate @questions
+	%br/
+	- form_for :question, :remote => true, :url => add_question_path do |f|
+		= f.label 'Ваше имя:'
+		= f.text_field :autor, class:'styled', value:''
+		= f.label 'Текст вопроса:'
+		= f.text_area :body, class:'styled', id:'messageText'
+		%br/
+		= f.submit value:'Отправить', style:"font-size: 10px;", id:'submitButton'
+		%i{ style:"margin-left: 5px;" } Ctrl + Enter
+	

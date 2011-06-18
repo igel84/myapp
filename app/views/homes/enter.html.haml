@@ -1,0 +1,10 @@
+- form_for :user, :url => autoriz_path do |f|
+	= f.label 'Ваше имя:'
+	= f.text_field :name, class:'styled', value:''
+	= f.label 'Пароль:'
+	= f.password_field :pass, class:'styled'
+	%br/
+	= f.submit value:'Отправить', style:"font-size: 10px;"
+	- if flash[:notice]
+		%p.info= flash[:notice]
+

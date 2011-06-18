@@ -1,0 +1,111 @@
+$width: 900px;
+$borderColor: #fbc057;
+
+.content {
+	display: none;
+}
+#editInfo {
+	font: bold 1em arial;	
+	color: darken($borderColor, 20%);
+	text-align: center;
+	margin: {
+		right: auto;
+		left: auto;
+	}
+}
+.editButtons {
+	&:hover {
+		color: darken($borderColor, 40%);			
+		background-color: lighten($borderColor, 10%);
+	}	
+	&:active {
+		color: darken($borderColor, 40%);			
+		background-color: lighten($borderColor, 10%);
+	}	
+	&:link {
+		color: darken($borderColor, 40%);			
+		background-color: lighten($borderColor, 20%);
+	}	
+	&:visited {
+		color: darken($borderColor, 40%);		
+	}
+	text-decoration: none;
+	border: solid 1px darken($borderColor, 20%);
+	padding: {
+		left: 20px;
+		right: 20px;
+		top: 5px;
+		bottom: 5px;
+	}
+	margin: {
+		top: 0px;
+		left: 0px;
+		bottom: 20px;
+		right: 20px;
+	}
+	display: block;
+	cursor: hand;
+	background-color: lighten($borderColor, 20%);
+	font: bold 1em arial;
+	float: left;
+}
+#showInfo {
+	width: $width;
+	margin: {
+		left: auto;
+		right: auto;
+		top: 20px;
+	}
+}	
+table.striping {
+	cursor: hand;			
+	td {
+		border: solid 1px darken($borderColor, 20%);	
+		padding:{
+				left: 10px;
+				top: 5px;
+				bottom: 3px;
+				right: 50px;
+			}
+		background-color: lighten($borderColor, 20%);
+	}
+	tr.over td { background-color: $borderColor; }
+	tr.current td {	background-color: lighten($borderColor, 10%);	}
+}
+#editForm {
+	width: $width; 
+	margin: { left: auto; right: auto; }
+	padding: 10px;
+	td:nth-child(odd) { width: 140px;	}
+	td:nth-child(even) { width: 100%;	}
+	.titleText {
+		padding-top: 5px;
+		font: bold 1em arial;
+		color: darken($borderColor, 25%);
+	}		
+	.titleText.area {
+		font: bold 1em arial;
+		color: darken($borderColor, 25%);
+	}		
+	input, textarea {
+		height: 35px;		
+		width: 100%;
+  	margin: 5px;
+		padding: 0px;		
+		border: solid 1px darken($borderColor, 20%);			
+	}
+	#but {
+			height: 35px;		
+			width: 100%;
+  		margin: 5px;
+			padding: 0px;		
+			border: solid 1px darken($borderColor, 20%);			
+			cursor: hand;
+			background-color: lighten($borderColor, 20%);
+			font: bold 1em arial;
+			color: darken($borderColor, 30%);
+			}
+	textarea {
+		height: 280px;
+	}
+}

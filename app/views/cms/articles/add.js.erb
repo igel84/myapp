@@ -1,0 +1,24 @@
+$('#editInfo').html("<%= @message %>");
+$('#editInfo').fadeIn(1000).fadeOut(1000);
+<% if @article != nil && @article.id != nil %>
+$("<tr id='<%= @article.id %>' class=''><%= escape_javascript(
+render partial:'article', locals:{ article:@article } ) %></tr>").insertAfter("#<%= @last %>")
+<% end %>
+$(".striping tr").mousedown(function() {
+		$(this).removeClass("over");
+		$('.striping tr').removeClass('current');
+		$(this).addClass("current");
+	});
+	$(".striping tr").mouseover(function() {
+		$(this).addClass("over");	
+	});
+	$(".striping tr").mouseout(function() {
+		$(this).removeClass("over");	
+	});
+	
+	$(".striping tr").click(function() {
+		var id = $(this).attr("id");
+		$("#artNum").html("<input id='article_id' name='num_article' size='30' type='text' value='"+id+"'/>");
+		$("#subNum").click();
+		$('#f hr').next().animate({opacity: 'show', height:'show'}, 'slow');			
+	});

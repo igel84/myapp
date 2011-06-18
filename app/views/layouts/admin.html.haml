@@ -1,0 +1,26 @@
+!!!
+%html
+	%head
+		%title
+			Shoppery -
+			= yield(:title) || "The Place to Buy Stuff"
+		= javascript_include_tag :defaults, :ckeditor, "cms.js", "jquery-ui-1.8.13.custom", "ckeditor/config.js"
+		= stylesheet_link_tag "reset.css", "ie.css", "screen.css", "scaffold.css", "print.css", "cms.css", "jquery-ui-1.8.13.custom.css", "../javascripts/ckeditor/contents.css"
+%body
+	- if admin?
+		= link_to "articles", cms_article_index_path
+		- form_for :user, current_user, :url => user_path, :html => { :multipart => true } do |form|
+			= form.hidden_field :id
+			= form.text_field :name
+			= form.file_field :avatar
+			= form.submit
+	.sidenav#sidebar
+		- if current_user != nil
+			= image_tag current_user.avatar.url	
+			%b= current_user.full_name
+			= link_to('выйти', exit_path)
+			- for mail in Mail.find(:all)
+				.mails
+					= check_box_tag "user[mail_id][]", mail.id, current_user.mails.include?(mail)
+					= mail.mail
+	= yield	

@@ -1,0 +1,8 @@
+$("#editForm").html("<%= escape_javascript(
+render partial:'edit', locals:{ article:@article } ) %>");
+$('#f hr').next().animate({opacity: 'show', height:'show'}, 'slow');
+$('div#editForm form').submit(function() {		
+		$('div#editForm form').attr('method', 'post').attr('action', '/cms/articles/add');
+		$('.striping tr').removeClass('current');
+		$('#f hr').next().animate({opacity: 'hide', height:'hide'}, 'slow');	
+	});

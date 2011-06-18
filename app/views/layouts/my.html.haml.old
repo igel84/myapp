@@ -1,0 +1,56 @@
+!!!
+%html
+	%head
+		%title site
+		= stylesheet_link_tag :all
+		= javascript_include_tag :defaults 
+		= csrf_meta_tag
+	%body
+		.logo
+			= link_to('Разработка сайтов', { :controller => 'homes', :action => 'index' }, :class => 'active')
+		.top
+			.header
+				.left		
+		.container
+			.navigation
+				= link_to('Главная', { :controller => 'homes', :action => 'index' }, :class => 'active')
+				= link_to('Контакты', { :controller => 'homes', :action => 'contact' }, :class => 'active')
+				= link_to('Цены', { :controller => 'homes', :action => 'price' }, :class => 'active')
+				= link_to('Вопрос-ответ', index_questions_path(1), :class => 'active')
+				%li.page_item.page-item-2
+					%a Блог
+					.clearer
+						%span
+			.main
+				.content
+					.post#post-1	
+						= yield
+					%p{:align => "center"}
+				.sidenav#sidebar
+					%h2 Категории
+					%ul
+						%li.cat-item.cat-item-1
+							= link_to('Главная', { :controller => 'homes', :action => 'index' }, :class => 'active')
+							= link_to('Контакты', { :controller => 'homes', :action => 'contact' }, :class => 'active')
+							= link_to('Цены', { :controller => 'homes', :action => 'price' }, :class => 'active')
+							%a Вопрос-ответ
+					%h2 Архив
+					%ul
+						%li.cat-item.cat-item-1
+							%a Новости
+					%h2 Блоги
+					%ul
+					%h2 Поиск
+					%ul
+						%li
+							%form#searchform{:method => "get", :action => "/wordpresslive/index.php"}
+								%input#s{:type => "text", :value => "", :name => "s", :size => "17"}
+								%input#sidebarsubmit{:type => "submit", :value => "Поиск", :style => "font-size: 10px;"}
+				.clearer
+					%span
+				.footer
+					%font{:size => "1", :face => "calibri"} 
+						Недорогой качественный и продуманный сайт в Воронеже: 
+						= link_to('юлиансайт.рф', { :controller => 'homes', :action => 'index' }, :class => 'active', :style => "color: gray;")
+				.clearer
+					%span

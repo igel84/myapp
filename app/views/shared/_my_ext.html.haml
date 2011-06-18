@@ -1,0 +1,6 @@
+= stylesheet_link_tag "../ext-4.0.1/resources/css/ext-all.css"
+= javascript_include_tag "../ext-4.0.1/ext-all-debug.js"
+%input{type:"button", onclick:"Ext.Msg.alert('message','hello');", value:"click"}/
+		%javascript
+			test=new Ext.Panel({title: "Panel", html: "spisok: '<li>dsf</li>'"});
+			test.render(Ext.getBody());

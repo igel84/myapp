@@ -1,0 +1,4 @@
+$('#editInfo').html("<%= @message %>");
+$('#editInfo').fadeIn(1000).fadeOut(1000);
+$("#<%= @article.id %>").html("<%= escape_javascript(
+render partial:'article', locals:{ article:@article } ) %>");
